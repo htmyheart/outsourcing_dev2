@@ -12,5 +12,10 @@
                 <argument name="template" xsi:type="string">Dreamcode_ShowSubCategories::product/list.phtml</argument>
             </action>
         </referenceBlock>
+
+        <referenceContainer name="sidebar.main">
+            <!-- <block class="Magento\Catalog\Block\Navigation" name="catalog.leftnav" before="-" template="navigation/left.phtml"/> -->
+             <referenceBlock name="catalog.leftnav" remove="true" />
+        </referenceContainer>
     </body>
 </page>
