@@ -80,3 +80,8 @@ LICENSE.txt
 LICENSE_AFL.txt
 nginx.conf.sample
 package.json.sample
+.htaccess.sample
+.user.ini
+index.php
+php.ini
+php.ini.sample
