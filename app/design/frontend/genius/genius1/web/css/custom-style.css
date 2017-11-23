@@ -57,3 +57,23 @@
 .header-container .header-content .col-right{
     padding-top: 20px;
 }
+
+#homepage_header_phone_dc{
+    text-align: center;
+}
+#homepage_header_phone_dc p{
+    color: #ff0000;
+    font-size: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+    #homepage_header_phone_dc p{
+        font-size: medium;
+    }
+}
+
+
+.catalog-category-view .category-image img{
+    text-align: center;
+    margin: 0 auto;
+}

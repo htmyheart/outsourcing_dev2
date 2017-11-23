@@ -14,7 +14,7 @@
 				<block class="Plazathemes\Hozmegamenu\Block\Menu" name="verticalmegamenu" template="verticalmegamenu.phtml"  as='verticalmegamenu' />
 				<block class="Plazathemes\Hozmegamenu\Block\Menu" name="mobilemenu" template="mobilemenu.phtml"  as='mobilemenu' />
 
-                <block class="Magento\Framework\View\Element\Template" name="top.search" as="homepage_header_phone_dc" template="Dreamcode_Customize::homepage_header_phone.phtml" />
+                <block class="Magento\Framework\View\Element\Template" name="top.search" as="homepage_header_phone_dc" template="Dreamcode_Customize::homepage_header_phone.phtml"  />
 
 				<block class="Magento\Store\Block\Switcher" name="store_language_mobile" as="store_language_mobile" template="switch/languages_mobile.phtml"/>
 				<block class="Magento\Directory\Block\Currency" name="currency_mobile" as="currency_mobile" template="currency_mobile.phtml" />

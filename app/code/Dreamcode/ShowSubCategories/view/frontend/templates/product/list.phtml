@@ -1,3 +1,4 @@
+<hr>
 <?php
 /**
  * Copyright © 2016 PlazaThemes.com. All rights reserved.
@@ -282,7 +283,7 @@ $productModel = $objectManager->get('Magento\Catalog\Model\Product');
             <li class="item product product-item col-sm-3">
                 <div class="product-item-info">
                 	
-					<?php //var_dump($category->getImageUrl()); die; ?>
+					<?php //var_dump(get_class_methods($category));  ?>
 					
 
                     <?php if ($category['thumbnail']): ?>
@@ -325,25 +326,33 @@ $productModel = $objectManager->get('Magento\Catalog\Model\Product');
 					</thead>
 					<tbody>
 						<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
-						<?php foreach ($_productCollection as $_product): ?>
-						<tr>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_diameter')->getFrontend()->getValue($_product); ?></td>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_width')->getFrontend()->getValue($_product); ?></td>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_capacity')->getFrontend()->getValue($_product); ?></td>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_hub_length')->getFrontend()->getValue($_product); ?></td>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_bearing')->getFrontend()->getValue($_product); ?></td>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_axle_diameter')->getFrontend()->getValue($_product); ?></td>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('temp_min')->getFrontend()->getValue($_product); ?></td>
-							<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('temp_max')->getFrontend()->getValue($_product); ?></td>
-							<td>
-								<strong><a class="product-item-link" href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" title="Click here to learn more">
-									<?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('sku')->getFrontend()->getValue($_product); ?>
-								</a></strong>
-							</td>
-						</tr>
+						<?php $count_config_product = 0; foreach ($_productCollection as $_product): ?>
+							<?php if( $_product->getTypeId() == "configurable" ): ?>
+							<?php $count_config_product ++?>
+								<tr>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_diameter')->getFrontend()->getValue($_product); ?></td>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_width')->getFrontend()->getValue($_product); ?></td>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_capacity')->getFrontend()->getValue($_product); ?></td>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_hub_length')->getFrontend()->getValue($_product); ?></td>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_bearing')->getFrontend()->getValue($_product); ?></td>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_axle_diameter')->getFrontend()->getValue($_product); ?></td>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('temp_min')->getFrontend()->getValue($_product); ?></td>
+									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('temp_max')->getFrontend()->getValue($_product); ?></td>
+									<td>
+										<strong><a class="product-item-link" href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" title="Click here to learn more">
+											<?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('sku')->getFrontend()->getValue($_product); ?>
+										</a></strong>
+									</td>
+								</tr>
+							<?php endif; ?>
 						<?php endforeach; ?>
 					</tbody>
 				</table>
+
+				<?php if( $count_config_product == 0 ): ?>
+					<div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
+				<?php endif; ?>
+
 			</div>
 				
 		</div>
