@@ -10,6 +10,9 @@ namespace Dreamcode\ProductPrinter\Controller\Index;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\App\Filesystem\DirectoryList;
+
 class Index extends \Magento\Catalog\Controller\Product
 {
     /**
@@ -27,6 +30,10 @@ class Index extends \Magento\Catalog\Controller\Product
      */
     protected $resultPageFactory;
 
+
+    protected $_productFactory; 
+
+
     /**
      * Constructor
      *
@@ -39,11 +46,20 @@ class Index extends \Magento\Catalog\Controller\Product
         Context $context,
         \Magento\Catalog\Helper\Product\View $viewHelper,
         \Magento\Framework\Controller\Result\ForwardFactory $resultForwardFactory,
-        PageFactory $resultPageFactory
+        PageFactory $resultPageFactory,
+        \Magento\Framework\App\Response\Http\FileFactory $fileFactory,
+        \Magento\Catalog\Model\ProductFactory $productFactory
     ) {
         $this->viewHelper = $viewHelper;
         $this->resultForwardFactory = $resultForwardFactory;
         $this->resultPageFactory = $resultPageFactory;
+
+
+
+        $this->_productFactory = $productFactory;
+        $this->_fileFactory = $fileFactory;
+
+
         parent::__construct($context);
     }
 
@@ -66,9 +82,32 @@ class Index extends \Magento\Catalog\Controller\Product
     }
 
 
+
+    public function execute1()
+    {
+        $productId = (int) $this->getRequest()->getParam('id');
+
+        if ($productId) {
+            $product = $this->_productFactory->create()->load($productId);
+
+            $pdf = $this->_objectManager->create('Dreamcode\ProductPrinter\Model\Pdf\Product')->getPdf([$product]);
+
+
+            $date = $this->_objectManager->get('Magento\Framework\Stdlib\DateTime\DateTime')->date('Y-m-d_H-i-s');
+            return $this->_fileFactory->create(
+                'product' . $date . '.pdf',
+                $pdf->render(),
+                DirectoryList::VAR_DIR,
+                'application/pdf'
+            );
+
+        } else {
+            return $this->resultForwardFactory->create()->forward('noroute');
+        }
+    }
+
+
     // http://localhost/magento/dev2/productprinter/index/index/?id=200&category=16
-
-
     
     /**
      * Product view action
@@ -77,6 +116,8 @@ class Index extends \Magento\Catalog\Controller\Product
      */
     public function execute()
     {
+
+         $params = $this->getRequest()->getParams();
 
         // Get initial data from request
         $categoryId = (int) $this->getRequest()->getParam('category', false);

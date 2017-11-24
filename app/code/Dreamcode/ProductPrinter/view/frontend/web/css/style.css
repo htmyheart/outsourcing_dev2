@@ -1,0 +1,15 @@
+#print_product_info_pdf {
+	margin-bottom: 20px;
+	background: #0f2eba;
+	padding: 10px;
+}
+#print_product_info_pdf{
+    text-align: center;
+}
+#print_product_info_pdf p{
+    color: #ff0000;
+    font-size: 30px;
+}#print_product_info_pdf a.logo{
+	margin: 0 auto;
+	display: block;
+}

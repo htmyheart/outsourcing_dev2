@@ -1,0 +1,49 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View */
+?>
+<?php
+$_product = $block->getProduct(); 
+$query = [ 'id' => $_product->getId() ];
+?>
+<?php $buttonTitle = __('Print to PDF'); ?>
+<?php if ($_product->isSaleable()): ?>
+<div class="box-printpdf" style="margin-bottom: 20px;">
+    <div class="fieldset">
+        <div class="">
+        	<form action="<?php echo $block->getUrl("productprinter/index/index", ['_current' => false, '_use_rewrite' => false, '_query' => $query]); ?>" method="post" id="product_printpdf_form">
+	            <button type="submit" title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>" class="action primary tocart" id="product-printpdf-button">
+	                <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
+	            </button>
+            </form>
+        </div>
+    </div>
+</div>
+<?php endif; ?>
+
+<script>
+    require([
+        'jquery',
+        'mage/mage',
+        'Magento_Catalog/product/view/validation',
+        'Dreamcode_ProductPrinter/js/print-product-to-pdf'
+    ], function ($) {
+        'use strict';
+
+    	$('#product_printpdf_form').mage('validation', {
+            radioCheckboxClosest: '.nested',
+            submitHandler: function (form) {
+
+                var widget = $(form).printProductToPdf({
+                    bindSubmit: false
+                });
+
+                widget.printProductToPdf('submitForm', $(form));
+
+                return false;
+            }
+        });
+        
+    });
+</script>

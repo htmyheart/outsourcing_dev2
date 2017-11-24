@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content"> 		
+            <referenceContainer name="catalog.product.view" >
+				<referenceContainer name="product.row" >
+					<referenceContainer name="product.col.left" >
+						<referenceContainer name="product.row.child" >
+							<referenceContainer name="product.col.info" >
+								<referenceContainer name="product.info.main">
+
+									<block class="Magento\Catalog\Block\Product\View" name="product.info.printpdf" template="Dreamcode_ProductPrinter::product/print_button.phtml" before="product.info.extrahint" />
+
+								</referenceContainer>
+							</referenceContainer>
+						</referenceContainer>
+					</referenceContainer>
+				</referenceContainer> 
+			</referenceContainer>
+        </referenceContainer>
+    </body>
+</page>
