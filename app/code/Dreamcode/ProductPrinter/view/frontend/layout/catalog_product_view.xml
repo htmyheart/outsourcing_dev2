@@ -1,8 +1,14 @@
 <?xml version="1.0"?>
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <body>
-        <referenceContainer name="content"> 		
-            <referenceContainer name="catalog.product.view" >
+	<head>
+		<css src="Dreamcode_ProductPrinter::css/style.css" />
+	</head>
+	<body>
+        <referenceContainer name="content">
+			<block class="Magento\Framework\View\Element\Template" name="top.company.infomation" template="Dreamcode_ProductPrinter::top_company_information.phtml" before="-" />
+			<block class="Magento\Theme\Block\Html\Footer" name="copyright.company.infomation" htmlTag="div" htmlClass="print_product_info_copyrignt" template="Dreamcode_ProductPrinter::bottom_copyright_infomation.phtml" after="-"/>
+
+			<referenceContainer name="catalog.product.view" >
 				<referenceContainer name="product.row" >
 					<referenceContainer name="product.col.left" >
 						<referenceContainer name="product.row.child" >

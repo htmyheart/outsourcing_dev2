@@ -7,23 +7,27 @@
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
-        <css src="mage/gallery/gallery.css"/>
+        <!-- <css src="mage/gallery/gallery.css"/> -->
 
-        <remove src="css/print.css" />
+        <!-- <remove src="css/print.css" /> -->
         <!-- <remove src="Magento_Customer::js/view/authentication-popup.js" /> -->
-
+        <css src="Dreamcode_ProductPrinter::css/bootstrap.css" />
         <css src="Dreamcode_ProductPrinter::css/style.css" />
-        <css src="Dreamcode_ProductPrinter::css/print_style.css" media="print" />
+
+        <!-- <css src="Dreamcode_ProductPrinter::css/print_style.css" media="print" /> -->
+        <script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js" src_type="url"/>
+
     </head>
-    <update handle="catalog_product_view"/>
-    <update handle="catalog_product_opengraph" />
-    <update handle="page_calendar"/>
+     <update handle="catalog_product_view"/>
+     <update handle="catalog_product_opengraph" />
+     <update handle="page_calendar"/>
+
     <body>
 
         <attribute name="class" value="page-print"/>
         
         <referenceContainer name="before.body.end">
-            <block class="Magento\Framework\View\Element\Template" name="sales.order.print.js" template="Dreamcode_ProductPrinter::html/print.phtml" />
+            <block class="Magento\Framework\View\Element\Template" name="product.print.js" template="Dreamcode_ProductPrinter::html/print.phtml" />
         </referenceContainer>
         
         <referenceContainer name="header.box" remove="true" />
@@ -40,8 +44,10 @@
         <referenceBlock name="product.info.extrahint" remove="true"/>
         <referenceBlock name="product.info" remove="true"/>
 
-        <referenceContainer name="content">     
+        <referenceContainer name="content">
+            <referenceBlock name="authentication-popup" remove="true" />
             <block class="Magento\Framework\View\Element\Template" name="top.company.infomation" template="Dreamcode_ProductPrinter::top_company_information.phtml" before="-" />
+            <!--<block class="Magento\Framework\View\Element\Template" name="product.print.html" template="Dreamcode_ProductPrinter::product/template.phtml" />-->
         </referenceContainer>
     </body>
 </page>

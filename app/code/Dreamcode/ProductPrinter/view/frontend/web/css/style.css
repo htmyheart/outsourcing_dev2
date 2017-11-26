@@ -2,14 +2,20 @@
 	margin-bottom: 20px;
 	background: #0f2eba;
 	padding: 10px;
-}
-#print_product_info_pdf{
+    display: none;
     text-align: center;
 }
 #print_product_info_pdf p{
-    color: #ff0000;
-    font-size: 30px;
+    color: #fff;
+    font-size: 25px;
 }#print_product_info_pdf a.logo{
 	margin: 0 auto;
 	display: block;
 }
+ #print_product_info_copyrignt{
+     margin-top: 30px;
+     display: none;
+ }
+
+
+

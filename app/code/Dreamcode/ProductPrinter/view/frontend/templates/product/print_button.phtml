@@ -26,9 +26,11 @@ $query = [ 'id' => $_product->getId() ];
     require([
         'jquery',
         'mage/mage',
+        'html2pdf',
+//        'html2canvas',
         'Magento_Catalog/product/view/validation',
         'Dreamcode_ProductPrinter/js/print-product-to-pdf'
-    ], function ($) {
+    ], function ($, mage, html2pdf) {
         'use strict';
 
     	$('#product_printpdf_form').mage('validation', {
@@ -39,7 +41,31 @@ $query = [ 'id' => $_product->getId() ];
                     bindSubmit: false
                 });
 
-                widget.printProductToPdf('submitForm', $(form));
+//                var element1 = $('body').find("#maincontent");
+//                html2canvas(element1, {
+//                    dpi: 450,
+//                    letterRendering: true,
+//                    allowTaint: true,
+//                    logging:true
+//                }).then(function(canvas) {
+//                    document.body.appendChild(canvas);
+//                });
+
+                $("#print_product_info_pdf").show();
+                $("#print_product_info_copyrignt").show();
+                var element = document.getElementById('maincontent');
+                html2pdf(element, {
+                    margin:       0.3,
+                    filename:     'myfile.pdf',
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { dpi: 450, letterRendering: true },
+                    jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+                });
+
+                $("#print_product_info_pdf").hide();
+                $("#print_product_info_copyrignt").hide();
+
+//                widget.printProductToPdf('submitForm', $(form));
 
                 return false;
             }
