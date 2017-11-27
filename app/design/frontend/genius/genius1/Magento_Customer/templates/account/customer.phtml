@@ -1,13 +1,30 @@
-<?php //if($this->customerLoggedIn()): ?>
+<?php
+if($this->customerLoggedIn()):
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $customerSession = $objectManager->get('Magento\Customer\Model\Session');
+    $fullname = $customerSession->getCustomer()->getName();
+    ?>
+    <li class="customer welcome customer-welcome">
+        <span class="customer name">
+            <span><?php echo $this->getCustomerName(); ?></span>
+            <span class="account"><?php echo $fullname; ?><i class="fa fa-angle-down">&nbsp;</i></span>
+        </span>
+        <?php if($this->getChildHtml()):?>
+            <div class="customer menu customer-menu">
+                <?php echo $this->getChildHtml();?>
+            </div>
+        <?php endif; ?>
+    </li>
+<?php else: ?>
     <li class="customer welcome customer-welcome">
         <span class="customer name">
             <span><?php echo $this->getCustomerName(); ?></span>
             <span class="account"><?php echo __('Account')?><i class="fa fa-angle-down">&nbsp;</i></span>
         </span>
         <?php if($this->getChildHtml()):?>
-        <div class="customer menu customer-menu">
-            <?php echo $this->getChildHtml();?>
-        </div>
+            <div class="customer menu customer-menu">
+                <?php echo $this->getChildHtml();?>
+            </div>
         <?php endif; ?>
     </li>
-<?php //endif; ?>
+<?php endif; ?>
