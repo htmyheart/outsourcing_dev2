@@ -327,7 +327,7 @@ $productModel = $objectManager->get('Magento\Catalog\Model\Product');
 					<tbody>
 						<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
 						<?php $count_config_product = 0; foreach ($_productCollection as $_product): ?>
-							<?php if( $_product->getTypeId() != "simple" ): ?>
+							<?php //if( $_product->getTypeId() != "simple" ): ?>
 							<?php $count_config_product ++?>
 								<tr>
 									<td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_diameter')->getFrontend()->getValue($_product); ?></td>
@@ -344,7 +344,7 @@ $productModel = $objectManager->get('Magento\Catalog\Model\Product');
 										</a></strong>
 									</td>
 								</tr>
-							<?php endif; ?>
+							<?php //endif; ?>
 						<?php endforeach; ?>
 					</tbody>
 				</table>
