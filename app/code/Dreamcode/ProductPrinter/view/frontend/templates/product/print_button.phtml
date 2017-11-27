@@ -12,7 +12,7 @@ $query = [ 'id' => $_product->getId() ];
 <div class="box-printpdf" style="margin-bottom: 20px;">
     <div class="fieldset">
         <div class="">
-        	<form action="<?php echo $block->getUrl("productprinter/index/index", ['_current' => false, '_use_rewrite' => false, '_query' => $query]); ?>" method="post" id="product_printpdf_form">
+        	<form action="<?php //echo $block->getUrl("productprinter/index/index", ['_current' => false, '_use_rewrite' => false, '_query' => $query]); ?>" method="post" id="product_printpdf_form">
 	            <button type="submit" title="<?php /* @escapeNotVerified */ echo $buttonTitle ?>" class="action primary tocart" id="product-printpdf-button">
 	                <span><?php /* @escapeNotVerified */ echo $buttonTitle ?></span>
 	            </button>
@@ -27,7 +27,6 @@ $query = [ 'id' => $_product->getId() ];
         'jquery',
         'mage/mage',
         'html2pdf',
-//        'html2canvas',
         'Magento_Catalog/product/view/validation',
         'Dreamcode_ProductPrinter/js/print-product-to-pdf'
     ], function ($, mage, html2pdf) {
@@ -36,20 +35,11 @@ $query = [ 'id' => $_product->getId() ];
     	$('#product_printpdf_form').mage('validation', {
             radioCheckboxClosest: '.nested',
             submitHandler: function (form) {
-
+                $('body').loader('show');
                 var widget = $(form).printProductToPdf({
                     bindSubmit: false
                 });
 
-//                var element1 = $('body').find("#maincontent");
-//                html2canvas(element1, {
-//                    dpi: 450,
-//                    letterRendering: true,
-//                    allowTaint: true,
-//                    logging:true
-//                }).then(function(canvas) {
-//                    document.body.appendChild(canvas);
-//                });
 
                 $("#print_product_info_pdf").show();
                 $("#print_product_info_copyrignt").show();
@@ -64,6 +54,11 @@ $query = [ 'id' => $_product->getId() ];
 
                 $("#print_product_info_pdf").hide();
                 $("#print_product_info_copyrignt").hide();
+
+
+                setTimeout(function () {
+                    $('body').loader('hide');
+                }, 2000);
 
 //                widget.printProductToPdf('submitForm', $(form));
 
