@@ -249,3 +249,7 @@
 .pt_custommenu .pt_menu_link .parentMenu ul.level0 {
     width: 250px;
 }
+
+input[type="radio"], input[type="checkbox"]{
+    margin-top: 0;
+}
