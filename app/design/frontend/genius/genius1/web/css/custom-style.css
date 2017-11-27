@@ -253,3 +253,24 @@
 input[type="radio"], input[type="checkbox"]{
     margin-top: 0;
 }
+
+/*.block-addresses-list .items.addresses .item.actions .action:after,*/
+/*.account .data.table .col.actions .action:after,*/
+/*[class^='sales-guest-'] .data.table .col.actions .action:after,*/
+/*.sales-guest-view .data.table .col.actions .action:after,*/
+.block .box-actions .action span:after {
+    border-left: 1px solid #a6a6a6;
+    content: '';
+    display: inline-block;
+    height: 12px;
+    margin: 0 10px;
+    vertical-align: -1px;
+}
+.block .box-actions .action:last-child span:after {
+    border-left: none;
+    content: '';
+    display: inline-block;
+    height: 12px;
+    margin: 0 10px;
+    vertical-align: -1px;
+}
