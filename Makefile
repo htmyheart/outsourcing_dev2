@@ -9,8 +9,12 @@ reindex:
 
 cache_en:
     /usr/local/php5/bin/php bin/magento cache:enable
+
 cache_dis:
     /usr/local/php5/bin/php bin/magento cache:disable
+
+upgrade:
+    /usr/local/php5/bin/php bin/magento setup:upgrade
 
 
 s_flush:
@@ -21,3 +25,6 @@ s_deploy:
 
 s_reindex:
     ea-php70 bin/magento indexer:reindex
+
+s_upgrade:
+    ea-php70 bin/magento setup:upgrade
