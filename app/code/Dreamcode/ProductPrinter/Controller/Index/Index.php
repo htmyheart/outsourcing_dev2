@@ -13,6 +13,7 @@ use Magento\Framework\View\Result\PageFactory;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\App\Filesystem\DirectoryList;
 
+
 class Index extends \Magento\Catalog\Controller\Product
 {
     /**

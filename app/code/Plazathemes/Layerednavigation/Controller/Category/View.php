@@ -18,14 +18,75 @@ use Magento\Framework\View\Result\PageFactory;
 class View extends \Magento\Catalog\Controller\Category\View
 {
     /**
+     * Core registry
+     *
+     * @var \Magento\Framework\Registry
+     */
+    protected $_coreRegistry = null;
+
+    /**
+     * Catalog session
+     *
+     * @var \Magento\Catalog\Model\Session
+     */
+    protected $_catalogSession;
+
+    /**
+     * Catalog design
+     *
+     * @var \Magento\Catalog\Model\Design
+     */
+    protected $_catalogDesign;
+
+    /**
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    protected $_storeManager;
+
+    /**
+     * @var \Magento\CatalogUrlRewrite\Model\CategoryUrlPathGenerator
+     */
+    protected $categoryUrlPathGenerator;
+
+    /**
+     * @var \Magento\Framework\View\Result\PageFactory
+     */
+    protected $resultPageFactory;
+
+    /**
+     * @var \Magento\Framework\Controller\Result\ForwardFactory
+     */
+    protected $resultForwardFactory;
+
+    /**
      * Catalog Layer Resolver
      *
      * @var Resolver
      */
     private $layerResolver;
 
+    /**
+     * @var CategoryRepositoryInterface
+     */
+    protected $categoryRepository;
+
+    /**
+     * Constructor
+     *
+     * @param \Magento\Framework\App\Action\Context $context
+     * @param \Magento\Catalog\Model\Design $catalogDesign
+     * @param \Magento\Catalog\Model\Session $catalogSession
+     * @param \Magento\Framework\Registry $coreRegistry
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
+     * @param \Magento\CatalogUrlRewrite\Model\CategoryUrlPathGenerator $categoryUrlPathGenerator
+     * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
+     * @param \Magento\Framework\Controller\Result\ForwardFactory $resultForwardFactory
+     * @param Resolver $layerResolver
+     * @param CategoryRepositoryInterface $categoryRepository
+     * @SuppressWarnings(PHPMD.ExcessiveParameterList)
+     */
     public function __construct(
-         \Magento\Framework\App\Action\Context $context,
+        \Magento\Framework\App\Action\Context $context,
         \Magento\Catalog\Model\Design $catalogDesign,
         \Magento\Catalog\Model\Session $catalogSession,
         \Magento\Framework\Registry $coreRegistry,
@@ -35,10 +96,28 @@ class View extends \Magento\Catalog\Controller\Category\View
         \Magento\Framework\Controller\Result\ForwardFactory $resultForwardFactory,
         Resolver $layerResolver,
         CategoryRepositoryInterface $categoryRepository
-    )
-    {
-        parent::__construct($context, $catalogDesign, $catalogSession, $coreRegistry, $storeManager, $categoryUrlPathGenerator, $resultPageFactory, $resultForwardFactory, $layerResolver, $categoryRepository);
+    ) {
+        parent::__construct(
+            $context,
+            $catalogDesign,
+            $catalogSession,
+            $coreRegistry,
+            $storeManager,
+            $categoryUrlPathGenerator,
+            $resultPageFactory,
+            $resultForwardFactory,
+            $layerResolver,
+            $categoryRepository
+        );
+        $this->_storeManager = $storeManager;
+        $this->_catalogDesign = $catalogDesign;
+        $this->_catalogSession = $catalogSession;
+        $this->_coreRegistry = $coreRegistry;
+        $this->categoryUrlPathGenerator = $categoryUrlPathGenerator;
+        $this->resultPageFactory = $resultPageFactory;
+        $this->resultForwardFactory = $resultForwardFactory;
         $this->layerResolver = $layerResolver;
+        $this->categoryRepository = $categoryRepository;
     }
 
     public function execute()

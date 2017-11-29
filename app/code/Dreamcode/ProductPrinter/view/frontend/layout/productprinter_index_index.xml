@@ -11,11 +11,11 @@
 
         <!-- <remove src="css/print.css" /> -->
         <!-- <remove src="Magento_Customer::js/view/authentication-popup.js" /> -->
-        <css src="Dreamcode_ProductPrinter::css/bootstrap.css" />
+        <!--<css src="Dreamcode_ProductPrinter::css/bootstrap.css" />-->
         <css src="Dreamcode_ProductPrinter::css/style.css" />
 
         <!-- <css src="Dreamcode_ProductPrinter::css/print_style.css" media="print" /> -->
-        <script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js" src_type="url"/>
+        <!--<script src="https://github.com/niklasvh/html2canvas/releases/download/0.4.1/html2canvas.js" src_type="url"/>-->
 
     </head>
      <update handle="catalog_product_view"/>
@@ -47,7 +47,6 @@
         <referenceContainer name="content">
             <referenceBlock name="authentication-popup" remove="true" />
             <block class="Magento\Framework\View\Element\Template" name="top.company.infomation" template="Dreamcode_ProductPrinter::top_company_information.phtml" before="-" />
-            <!--<block class="Magento\Framework\View\Element\Template" name="product.print.html" template="Dreamcode_ProductPrinter::product/template.phtml" />-->
         </referenceContainer>
     </body>
 </page>
