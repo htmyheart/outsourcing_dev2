@@ -274,3 +274,18 @@ input[type="radio"], input[type="checkbox"]{
     margin: 0 10px;
     vertical-align: -1px;
 }
+
+.catalog-product-compare-index .main-content .table-comparison .cell{
+    width: auto;
+    border: none;
+}
+
+.catalog-product-compare-index .table-comparison .cell.label .attribute.label{
+    text-align: left;
+    font-size: 15px;
+    color: #000;
+}
+
+.catalog-product-compare-index .table-comparison .cell .attribute.value{
+    font-size: 12px;
+}
