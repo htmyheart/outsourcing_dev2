@@ -290,10 +290,10 @@ input[type="radio"], input[type="checkbox"]{
     font-size: 12px;
 }
 
-#maincontent {
+#maincontent,
+.product-view .product-info-main .box-inner1 .box-info-des p{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
     color: #000;
-
 }
 
 #dc_list_category{

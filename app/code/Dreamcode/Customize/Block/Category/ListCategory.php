@@ -5,7 +5,10 @@ namespace Dreamcode\Customize\Block\Category;
 /*
  * Use in cms block:
  * {{block class="Dreamcode\Customize\Block\Category\ListCategory" name="list_category_home_page" categoryIds="17,11,30,32,33,34" template="Dreamcode_Customize::list_category.phtml" }}
+ * {{block class="Dreamcode\Customize\Block\Category\ListCategory" name="list_sub_category" template="Dreamcode_Customize::list_sub_category.phtml" }}
  * */
+
+use Magento\Framework\Registry;
 
 /**
  * ListCategory
@@ -39,6 +42,8 @@ class ListCategory extends \Magento\Framework\View\Element\Template
      */
     protected $imageHelper;
 
+    private $registry;
+
     /**
      * @param \Magento\Framework\View\Element\Template\Context $context
      * @param array $data
@@ -47,12 +52,14 @@ class ListCategory extends \Magento\Framework\View\Element\Template
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Catalog\Model\CategoryFactory  $categoryFactory,
         \Magento\Catalog\Helper\Image $imageHelper,
+        Registry $registry,
         array $data = []
     ) {
         parent::__construct($context, $data);
         $this->_categoryFactory = $categoryFactory;
         $this->_scopeConfig = $context->getScopeConfig();
         $this->imageHelper = $imageHelper;
+        $this->registry = $registry;
     }
 
     public function getCategoryIds()
@@ -81,6 +88,26 @@ class ListCategory extends \Magento\Framework\View\Element\Template
     public function getPlaceholderImage()
     {
         return $this->imageHelper->getPlaceholder('image');
+    }
 
+    public function getCurrentCategory()
+    {
+        $category = $this->registry->registry('current_category');
+        return $category;
+    }
+
+    public function getCategoryList()
+    {
+        $result = [];
+        $_category = $this->getCurrentCategory();
+
+        if($_category){
+            $result = $this->_categoryFactory->create()->getCollection()->addAttributeToSelect('*')
+                ->addAttributeToFilter('is_active', 1)
+                ->setOrder('position', 'ASC')
+                ->addIdFilter($_category->getChildren());
+
+        }
+        return $result;
     }
 }
