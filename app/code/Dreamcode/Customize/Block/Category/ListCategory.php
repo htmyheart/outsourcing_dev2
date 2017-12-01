@@ -4,8 +4,8 @@ namespace Dreamcode\Customize\Block\Category;
 
 /*
  * Use in cms block:
- * {{block class="Dreamcode\Customize\Block\Category\ListCategory" name="list_category_home_page" categoryIds="17,11,30,32,33,34" template="Dreamcode_Customize::list_category.phtml" }}
- * {{block class="Dreamcode\Customize\Block\Category\ListCategory" name="list_sub_category" template="Dreamcode_Customize::list_sub_category.phtml" }}
+ * {{block class="Dreamcode\Customize\Block\Category\ListCategory" name="list_category_home_page" categoryIds="17,11,30,32,33,34" template="Dreamcode_Customize::category/list_category_homepage.phtml" }}
+ * {{block class="Dreamcode\Customize\Block\Category\ListCategory" name="list_sub_category" template="Dreamcode_Customize::category/list_sub_category.phtml" }}
  * */
 
 use Magento\Framework\Registry;
@@ -22,7 +22,7 @@ class ListCategory extends \Magento\Framework\View\Element\Template
      *
      * @var string
      */
-    protected $_template = 'Dreamcode_Customize::list_category.phtml';
+    protected $_template = 'Dreamcode_Customize::category/list_category_homepage.phtml';
 
     /**
      * @var \Magento\Catalog\Model\CategoryFactory
