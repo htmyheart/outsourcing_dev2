@@ -1,0 +1,38 @@
+<?php 
+/**
+ * @var $block \Dreamcode\Customize\Block\Category\ListCategory
+ */
+?>
+
+<div class="container">
+    <div id="dc_list_category">
+        <hr>
+        <?php $categories = $block->getCategories(); ?>
+        <?php $placeholderImage = $block->getViewFileUrl($block->getPlaceholderImage()); ?>
+        <?php /* @var $category \Magento\Catalog\Model\Category  */ ?>
+        <?php foreach ($categories as $category): ?>
+            <?php $category_image = ($category->getImageUrl() != '' ? $category->getImageUrl() : $placeholderImage); ?>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="media">
+                        <div class="media-left  col col-md-3">
+                            <a href="#">
+                                <img alt="<?php echo $block->escapeHtml($category->getName()); ?>" class="media-object img-responsive" src="<?php echo $category_image; ?>" data-holder-rendered="true" />
+                            </a>
+                        </div>
+                        <div class="media-body col col-md-9">
+                            <h4 class="media-heading"><?php echo $block->escapeHtml($category->getName()); ?></h4>
+                            <div class="dc_category_desc">
+                                <?php echo $category->getDescription(); ?>
+                            </div>
+                            <p><a href="<?php echo $block->escapeHtml($category->getUrl()); ?>" class="button_learnmore action primary" role="button">Learn more</a></p>
+                        </div>
+                    </div>
+
+                    <hr>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+

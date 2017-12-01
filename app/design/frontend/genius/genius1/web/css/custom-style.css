@@ -289,3 +289,29 @@ input[type="radio"], input[type="checkbox"]{
 .catalog-product-compare-index .table-comparison .cell .attribute.value{
     font-size: 12px;
 }
+
+#maincontent {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;
+    color: #000;
+
+}
+
+#dc_list_category{
+    margin: 20px 0;
+}
+#dc_list_category .button_learnmore{
+    margin: 10px 0;
+    text-transform: unset;
+    padding: 0 20px;
+    line-height: 30px;
+}
+#dc_list_category .dc_category_desc{
+    max-height: 150px;
+    overflow: hidden;
+}
+
+.media-heading {
+    margin: 0 0 5px;
+    font-size: 18px;
+    font-weight: normal;
+}
