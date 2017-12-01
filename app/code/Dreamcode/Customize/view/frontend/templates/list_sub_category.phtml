@@ -16,7 +16,7 @@
             <div class="products wrapper grid products-grid subcategories-listing">
                 <ol class="products list items product-items">
                     <?php foreach ($categories as $category): ?>
-                        <?php $category_image = ($category->getImageUrl() != '' ? $category->getImageUrl() : $placeholderImage); ?>
+                        <?php $category_image = ($category->getImageUrl('thumb_nail') != '' ? $category->getImageUrl('thumb_nail') : $placeholderImage); ?>
                         <li class="item product product-item col-sm-3">
                             <div class="product-item-info">
                                 <a href="<?php echo $block->escapeHtml($category->getUrl()); ?>" title="<?php echo $block->escapeHtml($category->getName()); ?>"><img src="<?php echo $category_image; ?>" height="120" width="120" /></a>

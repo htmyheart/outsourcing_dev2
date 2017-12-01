@@ -11,7 +11,7 @@
         <?php $placeholderImage = $block->getViewFileUrl($block->getPlaceholderImage()); ?>
         <?php /* @var $category \Magento\Catalog\Model\Category  */ ?>
         <?php foreach ($categories as $category): ?>
-            <?php $category_image = ($category->getImageUrl() != '' ? $category->getImageUrl() : $placeholderImage); ?>
+            <?php $category_image = ($category->getImageUrl('thumb_nail') != '' ? $category->getImageUrl('thumb_nail') : $placeholderImage); ?>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="media">
