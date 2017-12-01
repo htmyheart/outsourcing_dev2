@@ -1,0 +1,61 @@
+<hr>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\ListProduct
+ */
+?>
+<?php
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$productModel = $objectManager->get('Magento\Catalog\Model\Product');
+?>
+
+<div class="products wrapper grid products-grid">
+    <?php $iterator = 1; ?>
+
+    <div class="products list items product-items">
+        <table class="table table-bordered table-hover cart table-responsive">
+            <thead>
+            <tr>
+                <th>Wheel Diameter</th>
+                <th>Tread Width</th>
+                <th>Capacity lbs</th>
+                <th>Overall Height</th>
+                <th>Caster Series</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+            <?php $count_config_product = 0; foreach ($_productCollection as $_product): ?>
+                <?php //if( $_product->getTypeId() != "simple" ): ?>
+                <?php $count_config_product ++?>
+                <tr>
+                    <td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_diameter')->getFrontend()->getValue($_product); ?></td>
+                    <td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_tread')->getFrontend()->getValue($_product); ?></td>
+                    <td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('wheel_capacity')->getFrontend()->getValue($_product); ?></td>
+                    <td><?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('oah_overall_height')->getFrontend()->getValue($_product); ?></td>
+                    <td>
+                        <strong><a class="product-item-link" href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" title="Click here to learn more">
+                                <?php /* @escapeNotVerified */ echo $_product->getResource()->getAttribute('sku')->getFrontend()->getValue($_product); ?>
+                            </a></strong>
+                    </td>
+                </tr>
+                <?php //endif; ?>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+
+        <?php if( $count_config_product == 0 ): ?>
+            <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
+        <?php endif; ?>
+
+    </div>
+
+</div>
+
+
+
+
