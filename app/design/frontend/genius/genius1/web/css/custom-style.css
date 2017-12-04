@@ -289,7 +289,9 @@ input[type="radio"], input[type="checkbox"]{
 .catalog-product-compare-index .table-comparison .cell .attribute.value{
     font-size: 12px;
 }
-
+#maincontent{
+    margin-bottom: 30px;
+}
 #maincontent,
 .product-view .product-info-main .box-inner1 .box-info-des p{
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif ;

@@ -1,0 +1,10 @@
+#search_mini_form,
+.header.links,
+.block-search,
+.footer-container .footer-top,
+.header-container .header-content,
+.header-container .top-menu
+{
+    display: none;
+}
+

@@ -142,4 +142,5 @@
 		<referenceBlock name="footer_links" remove="true"/>
 		<referenceBlock name="report.bugs" remove="true"/>
     </body>
+	<update handle="dreamcode_fix_title"/>
 </page>

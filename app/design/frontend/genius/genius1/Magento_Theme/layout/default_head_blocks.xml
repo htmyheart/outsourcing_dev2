@@ -16,7 +16,7 @@
 		<css src="css/animate.css" />
 		<css src="css/style.css"/>
 		<css src='css/owl.carousel.css' media='all' />
-		<css src="css/custom-style.css"/>
+		<css src="css/custom-style.css" media='all' rel='stylesheet' type='text/css'/>
 		<link src='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css' src_type="url" />
     </head>
 </page>

@@ -3,6 +3,7 @@ if($this->customerLoggedIn()):
     $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
     $customerSession = $objectManager->get('Magento\Customer\Model\Session');
     $fullname = $customerSession->getCustomer()->getName();
+    if($fullname == ""){$fullname = $customerSession->getCustomer()->getEmail(); }
     ?>
     <li class="customer welcome customer-welcome">
         <span class="customer name">
