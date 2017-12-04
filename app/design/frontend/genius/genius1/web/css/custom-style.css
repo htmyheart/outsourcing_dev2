@@ -317,3 +317,5 @@ input[type="radio"], input[type="checkbox"]{
     font-size: 18px;
     font-weight: normal;
 }
+
+select option[value=""] { display :none; }
