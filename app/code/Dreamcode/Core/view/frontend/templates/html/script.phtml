@@ -1,0 +1,16 @@
+<script type="text/javascript">
+    // <![CDATA[
+    require([
+        'jquery'
+    ], function ($) {
+
+        $('body').find('select option[value=""]').each(function(){
+            if (!$(this).text().trim().length) {
+                $(this).remove();
+            }
+        });
+
+    });
+    // ]]>
+</script>
+
