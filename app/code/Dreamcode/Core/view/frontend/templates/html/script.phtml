@@ -4,11 +4,13 @@
         'jquery'
     ], function ($) {
 
-        $('body').find('select option[value=""]').each(function(){
-            if (!$(this).text().trim().length) {
-                $(this).remove();
-            }
-        });
+        setTimeout(function () {
+            $('body').find('select option[value=""]').each(function(){
+                if (!$(this).text().trim().length) {
+                    $(this).remove();
+                }
+            });
+        }, 5000);
 
     });
     // ]]>
