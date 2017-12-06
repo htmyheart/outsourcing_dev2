@@ -73,14 +73,15 @@
 }
 
 .toplink-header-searchbox .block-search {
-    float: none;
+    float: right;
     padding-left: 0;
-    width: 100%;
+    width: 70%;
     position: relative;
     margin: 0;
-    border: 2px solid #e8b11d;
+    border: 2px solid #2D60BC;
     border-radius: 25px;
     overflow: hidden;
+    height: 35px;
 }
 .toplink-header-searchbox .block-search .block-title {
     display: none;
@@ -120,8 +121,8 @@
 }
 .toplink-header-searchbox .block-search .block-content .control input {
     width: 100%;
-    height: 37px;
-    line-height: 37px;
+    height: 32px;
+    line-height: 32px;
     padding-right: 52px;
     font-size: 12px;
     color: #9d9d9d;
@@ -145,9 +146,9 @@
     color: #f65656 !important;
 }
 .toplink-header-searchbox .block-search .block-content .control .actions .action.search:before {
-    height: 41px;
-    line-height: 41px;
-    width: 42px;
+    height: 35px;
+    line-height: 35px;
+    width: 35px;
     text-align: center;
     background: #e8b11d;
     color: #fff;
@@ -186,7 +187,7 @@
         top: 0;
         width: 250px;
         opacity: 1;
-        border: 1px solid #e8b11d;
+        border: 1px solid #2D60BC;
         border-radius: 25px;
         height: 35px;
         padding-right: 40px;
@@ -220,11 +221,9 @@
 
 .toplink-header-searchbox{
     height: 45px;
-    padding-top: 3px;
+    padding-top: 6px;
 }
-.toplink-header-searchbox .block-search{
-    height: 40px
-}
+
 .header-container .top-link .header-phone p{
     margin-top: 5px;
     margin-bottom: 5px;
@@ -319,3 +318,70 @@ input[type="radio"], input[type="checkbox"]{
 }
 
 /*select option[value=""] { display :none; }*/
+
+.main-content .price-box{
+    line-height: 22px;
+}
+.product-info-main .price-box{
+    margin: 20px 0;
+}
+
+.product-info-main .price-box .price-including-tax + .price-excluding-tax,
+.product-options-bottom .price-box .price-including-tax + .price-excluding-tax,
+.product-info-main .price-box .weee + .price-excluding-tax,
+.product-options-bottom .price-box .weee + .price-excluding-tax,
+.product-info-main .price-box .weee,
+.product-options-bottom .price-box .weee{
+    line-height: 22px;
+}
+
+.product-view .product-info-main .price-box .price{
+    font-size: 22px !important;
+}
+
+
+.toplink-header-searchbox .block-search .block-content .control .actions .action.search:before
+{
+    background: #2D60BC;
+}
+
+/*.breadcrumbs .container-inner .items .item strong,*/
+/*.verticalmenu-container .pt_vmegamenu .pt_menu .popup .block1 .column .itemMenu .itemMenuName.level1:hover,*/
+/*.pt_custommenu div.pt_menu .parentMenu a:hover,*/
+/*.pt_custommenu div.pt_menu .parentMenu span.block-title:hover,*/
+/*.pt_custommenu div.pt_menu .parentMenu a.act,*/
+/*.pt_custommenu div.pt_menu .parentMenu span.block-title.act,*/
+/*.mobile-bar-content .content-inner .tabs-mobile .item.active,*/
+/*.ma-nav-mobile-container .mobilemenu li.active a, .mobilemenu a:hover,*/
+/*.mobile-bar-content .content-inner .tabs-content-mobile .header.links .customer-welcome .customer-menu ul.links li a:hover,*/
+/*.mobile-bar-content .mobile-bar-close:hover*/
+/*{*/
+    /*color: #2D60BC;*/
+/*}*/
+
+/*.mobile-bar-icon,*/
+/*.mobile-bar-icon:hover,*/
+/*.mobile-bar-content .content-inner .tabs-mobile .item:hover*/
+/*{*/
+    /*color: #fff;*/
+/*}*/
+
+/*.ma-nav-mobile-container .mobilemenu ul a:hover, .mobilemenu ul li.active a*/
+/*{*/
+    /*color: #2D60BC !important;*/
+/*}*/
+/*.mobile-bar-icon,*/
+/*.mobile-bar-icon:hover,*/
+/*.mobile-bar-content .content-inner .tabs-mobile .item.active, .mobile-bar-content .content-inner .tabs-mobile .item:hover,*/
+/*.mobile-bar-content .content-inner .tabs-mobile .item,*/
+/*.mobile-bar-content .mobile-bar-close*/
+/*{*/
+    /*border-color: #fff;*/
+/*}*/
+
+
+/*.product-view .product-media .fotorama__nav__frame--thumb.fotorama__active,*/
+/*.product-view .product.info.detailed .items > .item.title.active a*/
+/*{*/
+    /*border-color: #2D60BC;*/
+/*}*/

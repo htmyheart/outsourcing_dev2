@@ -5,6 +5,7 @@
 	</head>
 	<body>
         <referenceContainer name="content">
+
 			<block class="Magento\Framework\View\Element\Template" name="top.company.infomation" template="Dreamcode_ProductPrinter::top_company_information.phtml" before="-" />
 			<block class="Magento\Theme\Block\Html\Footer" name="copyright.company.infomation" htmlTag="div" htmlClass="print_product_info_copyrignt" template="Dreamcode_ProductPrinter::bottom_copyright_infomation.phtml" after="-"/>
 
