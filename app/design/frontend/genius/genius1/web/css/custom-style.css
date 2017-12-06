@@ -345,6 +345,10 @@ input[type="radio"], input[type="checkbox"]{
     background: #2D60BC;
 }
 
+.breadcrumbs .container-inner,
+.product-view .product.info.detailed .items > .item.content{
+    border-bottom: 1px solid #e7e5e5;
+}
 /*.breadcrumbs .container-inner .items .item strong,*/
 /*.verticalmenu-container .pt_vmegamenu .pt_menu .popup .block1 .column .itemMenu .itemMenuName.level1:hover,*/
 /*.pt_custommenu div.pt_menu .parentMenu a:hover,*/
