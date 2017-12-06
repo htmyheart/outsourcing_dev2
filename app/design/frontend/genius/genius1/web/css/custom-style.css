@@ -348,8 +348,9 @@ input[type="radio"], input[type="checkbox"]{
 .breadcrumbs .container-inner,
 .header-container .header-content .minicart-wrapper .block-minicart .block-content .minicart-items-wrapper,
 .header-container .header-content .minicart-wrapper .block-minicart .block-content .minicart-items-wrapper .product-item-photo,
-.header-container .header-content .minicart-wrapper .block-minicart .block-content > .actions > .secondary .action.viewcart{
-    border-bottom: 1px solid #e7e5e5;
+.header-container .header-content .minicart-wrapper .block-minicart .block-content > .actions > .secondary .action.viewcart,
+input.input-text{
+    border: 1px solid #e7e5e5;
 }
 
 .product-view .product.info.detailed .items > .item.content{
