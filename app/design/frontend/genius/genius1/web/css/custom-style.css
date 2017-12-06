@@ -323,7 +323,7 @@ input[type="radio"], input[type="checkbox"]{
     line-height: 22px;
 }
 .product-info-main .price-box{
-    margin: 20px 0;
+    margin: 10px 0;
 }
 
 .product-info-main .price-box .price-including-tax + .price-excluding-tax,
@@ -346,11 +346,14 @@ input[type="radio"], input[type="checkbox"]{
 }
 
 .breadcrumbs .container-inner,
-.product-view .product.info.detailed .items > .item.content,
 .header-container .header-content .minicart-wrapper .block-minicart .block-content .minicart-items-wrapper,
 .header-container .header-content .minicart-wrapper .block-minicart .block-content .minicart-items-wrapper .product-item-photo,
 .header-container .header-content .minicart-wrapper .block-minicart .block-content > .actions > .secondary .action.viewcart{
     border-bottom: 1px solid #e7e5e5;
+}
+
+.product-view .product.info.detailed .items > .item.content{
+    border-top: 1px solid #e7e5e5;
 }
 /*.breadcrumbs .container-inner .items .item strong,*/
 /*.verticalmenu-container .pt_vmegamenu .pt_menu .popup .block1 .column .itemMenu .itemMenuName.level1:hover,*/
@@ -392,3 +395,9 @@ input[type="radio"], input[type="checkbox"]{
 /*{*/
     /*border-color: #2D60BC;*/
 /*}*/
+
+
+.prices-tier{
+    padding: 10px 0;
+    margin: 0;
+}
