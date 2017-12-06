@@ -71,8 +71,8 @@
 													</arguments>
 												</block>
 											</container>
-												
 										</container>
+
 										<container name="box.info.des" htmlTag="div" htmlClass="box-info-des" after="product.info.review">
 											
 											<block class="Magento\Catalog\Block\Product\View\Description" name="product.info.overview" template="product/view/attribute.phtml" group="detailed_info" after="product.info.price">
@@ -106,7 +106,7 @@
 											</block>
 
 
-											<block class="Magento\Catalog\Pricing\Render" name="product.price.tier" after="product.info.price">
+											<block class="Magento\Catalog\Pricing\Render" name="product.price.tier" before="product.price.final">
 												<arguments>
 													<argument name="price_render" xsi:type="string">product.price.render.default</argument>
 													<argument name="price_type_code" xsi:type="string">tier_price</argument>
