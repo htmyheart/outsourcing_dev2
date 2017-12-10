@@ -38,6 +38,7 @@ class Configurable
         $jsonResult['technical_data'] = [];
         foreach ($subject->getAllowProducts() as $simpleProduct) {
             $product = $this->getProductById($simpleProduct->getId());
+            $jsonResult['product_name'][$product->getId()] = $product->getName();
             $jsonResult['skus'][$product->getId()] = $product->getSku();
             $jsonResult['descriptions'][$product->getId()] = $product->getDescription();
             $jsonResult['short_descriptions'][$product->getId()] = $product->getShortDescription();

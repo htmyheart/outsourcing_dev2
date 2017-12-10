@@ -39,6 +39,7 @@ class Configurable
         foreach ($subject->getAllowProducts() as $simpleProduct) {
             $product = $this->getProductById($simpleProduct->getId());
 //            $description = $this->outputHelper->productAttribute($product, $product->getDescription(), 'description');
+            $jsonResult['product_name'][$product->getId()] = $product->getName();
             $jsonResult['skus'][$product->getId()] = $product->getSku();
             $jsonResult['descriptions'][$product->getId()] = $product->getDescription();
             $jsonResult['short_descriptions'][$product->getId()] = $product->getShortDescription();
