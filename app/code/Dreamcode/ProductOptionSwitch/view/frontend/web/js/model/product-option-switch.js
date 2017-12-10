@@ -8,6 +8,7 @@ define([
 
         var reloadPrice = targetModule.prototype._reloadPrice;
         targetModule.prototype.configurableSku = $('div.product-info-main .sku .value').html();
+
         var default_product_name = $('div.product-info-main h1.page-title span').html();
         var default_simpleSku = $('div.product-info-main .sku .value').html();
         var default_short_descriptions = $('div.product-info-main .box-info-des .value').html();
@@ -20,7 +21,6 @@ define([
 
 
             if(this.simpleProduct){
-
                 $('div.product-info-main h1.page-title span').html(this.options.spConfig.product_name[this.simpleProduct]);
                 $('div.product-info-main .sku .value').html(this.options.spConfig.skus[this.simpleProduct]);
                 $('div.product-info-main .box-info-des .value').html(this.options.spConfig.short_descriptions[this.simpleProduct]);
