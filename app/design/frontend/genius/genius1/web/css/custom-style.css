@@ -405,3 +405,7 @@ input.input-text{
     padding: 10px 0;
     margin: 0;
 }
+
+.product-view .product-media .fotorama__nav__frame--thumb:before{
+    background: transparent;
+}

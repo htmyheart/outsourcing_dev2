@@ -32,6 +32,7 @@ $query = [ 'id' => $_product->getId() ];
     ], function ($, mage, html2pdf) {
         'use strict';
 
+
     	$('#product_printpdf_form').mage('validation', {
             radioCheckboxClosest: '.nested',
             submitHandler: function (form) {
@@ -40,17 +41,54 @@ $query = [ 'id' => $_product->getId() ];
                     bindSubmit: false
                 });
 
-
+                /* script show header and footer for printer */
                 $("#print_product_info_pdf").show();
                 $("#print_product_info_copyrignt").show();
+                $("#print_product_info_copyrignt").show();
+
+                /* script process image for printer */
+                var fotorama__active = $(".fotorama__active").clone().find('img').addClass('image_for_printer');
+                var fotorama__wrap = $(".fotorama__wrap");
+                var fotorama__stage = $(".fotorama__stage");
+                fotorama__stage.hide();
+                fotorama__wrap.prepend(fotorama__active);
+
+                /* script process thumbnail image for printer */
+                $( ".fotorama__nav__frame" ).each(function( index ) {
+                    var image_clone = $( this ).find('.fotorama__thumb').clone();
+                    image_clone.find('img').addClass('image_thumb_for_printer');
+                    $( this ).prepend(image_clone.find('img'));
+                    $( this ).find('.fotorama__thumb').hide();
+                });
+
+
+                /* script hide some box for printer */
+                $('.product-options-bottom').hide();
+                $('.box-printpdf').hide();
+                $('.product-social-links').hide();
+
+                /* script printer */
                 var element = document.getElementById('maincontent');
                 html2pdf(element, {
                     margin:       0.3,
                     filename:     'myfile.pdf',
                     image:        { type: 'jpeg', quality: 0.98 },
-                    html2canvas:  { dpi: 450, letterRendering: true },
-                    jsPDF:        { unit: 'in', format: 'letter', orientation: 'landscape' }
+                    html2canvas:  { dpi: 300, letterRendering: true },
+                    jsPDF:        { unit: 'in', format: 'a4', orientation: 'landscape' }
                 });
+
+                /* script process image for printer */
+                $(".image_for_printer").remove();
+                fotorama__stage.show();
+
+                /* script process thumbnail image for printer */
+                $(".image_thumb_for_printer").remove();
+                $('.fotorama__nav__frame').find('.fotorama__thumb').show();
+
+                /* script show some box for printer */
+                $('.product-options-bottom').show();
+                $('.box-printpdf').show();
+                $('.product-social-links').show();
 
                 $("#print_product_info_pdf").hide();
                 $("#print_product_info_copyrignt").hide();
@@ -59,8 +97,6 @@ $query = [ 'id' => $_product->getId() ];
                 setTimeout(function () {
                     $('body').loader('hide');
                 }, 5000);
-
-//                widget.printProductToPdf('submitForm', $(form));
 
                 return false;
             }

@@ -18,4 +18,16 @@
  }
 
 
+ img.image_for_printer{
+     display: none;
+ }
 
+img.image_for_printer:first-child{
+    opacity: 1;
+    display: block;
+    border: 1px solid #e7e5e5 !important;
+}
+
+img.image_thumb_for_printer{
+    opacity: 1;
+}
